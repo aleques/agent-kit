@@ -1,0 +1,11 @@
+# Exceptions for the generic detectors of guard/scan.py.
+#
+# Only public documentation hosts and documentation addresses belong here. A company, a person,
+# a customer or an internal host never does: rewrite the text instead.
+#
+#   host:docs.example.dev    URLs on this host and its subdomains pass
+#   ip:192.0.2.1             this exact address passes
+#   email:someone@host       this exact address passes
+#
+# Built in, no entry needed: example.com/.org/.net, localhost, 127.0.0.0/8, 0.0.0.0,
+# 192.0.2.0/24, 198.51.100.0/24, 203.0.113.0/24, and *@users.noreply.github.com.

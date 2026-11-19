@@ -1,0 +1,6 @@
+#!/bin/sh
+# agent-kit guard: refuse a commit whose author e-mail is not a GitHub noreply address or whose
+# staged files carry sensitive or company data. Turned on by install.sh (core.hooksPath).
+here=$(dirname "$0")
+python3 "$here/../scan.py" --identity || exit 1
+python3 "$here/../scan.py" --staged || exit 1

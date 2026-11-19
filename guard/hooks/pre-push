@@ -1,0 +1,13 @@
+#!/bin/sh
+# agent-kit guard: scan every commit about to leave this machine, not only the final tree. A term
+# added in one commit and removed in the next still lives in history, so it blocks the push.
+here=$(dirname "$0")
+status=0
+while read -r local_ref local_sha remote_ref remote_sha; do
+  case $local_sha in *[!0]*) ;; *) continue ;; esac        # branch deletion: nothing to send
+  case $remote_sha in
+    *[!0]*) python3 "$here/../scan.py" --commits "$remote_sha..$local_sha" || status=1 ;;
+    *) python3 "$here/../scan.py" --commits "$local_sha --not --remotes" || status=1 ;;  # new branch
+  esac
+done
+exit $status

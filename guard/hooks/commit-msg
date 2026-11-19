@@ -1,0 +1,4 @@
+#!/bin/sh
+# agent-kit guard: refuse a commit message that carries sensitive or company data.
+here=$(dirname "$0")
+exec python3 "$here/../scan.py" --message "$1"

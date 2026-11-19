@@ -1,0 +1,26 @@
+name: ci
+
+# Every push and pull request runs the whole suite and then the guard over every commit that
+# reaches the branch. The deny terms come from the repository secret AGENT_KIT_DENY_TERMS; without
+# it the guard step fails on purpose (it never runs without a list).
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Suite
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Guard over the whole history
+        env:
+          AGENT_KIT_DENY_TERMS: ${{ secrets.AGENT_KIT_DENY_TERMS }}
+          TIP: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: python3 guard/scan.py --commits "$TIP"
