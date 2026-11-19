@@ -118,6 +118,15 @@ class GenericDetectorTest(unittest.TestCase):
         self.assertEqual(detectors(j("SEC", "RET = re.compile(")), [])
         self.assertEqual(detectors(j("tok", "en = get_token()")), [])
 
+    def test_dotted_reference_is_not_a_secret(self):
+        self.assertEqual(detectors(j("let TOK", "EN = tokenInput.value;")), [])
+
+    def test_jwt_is_a_secret(self):
+        jwt = j("ey", "JhbGciOiJIUzI1NiJ9", ".", "ey", "JzdWIiOiIxMjM0NTY3ODkwIn0", ".",
+                "dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U")
+        self.assertEqual(detectors(j("tok", "en = ", jwt)), ["secret"])
+        self.assertEqual(detectors("bearer " + jwt), ["secret"])
+
     def test_quoted_secret_value_is_found(self):
         self.assertEqual(detectors(j("api_", "key: ", '"', "Zx81Qw7Lp0aa", '"')), ["secret"])
 

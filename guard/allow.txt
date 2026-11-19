@@ -9,3 +9,21 @@
 #
 # Built in, no entry needed: example.com/.org/.net, localhost, 127.0.0.0/8, 0.0.0.0,
 # 192.0.2.0/24, 198.51.100.0/24, 203.0.113.0/24, and *@users.noreply.github.com.
+
+# Testing references cited by skills/test-coverage.
+host:martinfowler.com
+host:testing.googleblog.com
+host:pitest.org
+host:stryker-mutator.io
+
+# Public pages cited by the third-party skills (see THIRD_PARTY.md).
+host:github.com
+host:primeradiant.com
+host:agentskills.io
+host:platform.claude.com
+host:code.claude.com
+host:mintcdn.com
+host:gutenberg.org
+host:en.wikipedia.org
+# "http://host:port" is a placeholder in the visual companion guide.
+host:host

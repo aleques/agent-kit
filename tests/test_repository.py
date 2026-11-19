@@ -41,13 +41,30 @@ class SkillHeaderTest(unittest.TestCase):
                 self.assertLessEqual(len(description), 250)
 
 
+def prose_outside_code_blocks(text: str) -> str:
+    """Markdown without fenced code blocks: links inside ``` examples are illustrations."""
+    kept, inside = [], False
+    for line in text.splitlines():
+        if line.lstrip().startswith("```"):
+            inside = not inside
+            continue
+        if not inside:
+            kept.append(line)
+    return "\n".join(kept)
+
+
 class LinkTest(unittest.TestCase):
+    def test_links_inside_code_blocks_are_ignored(self):
+        text = "see [a](real.md)\n```markdown\n[b](example-only.md)\n```\n"
+        self.assertEqual(LINK.findall(prose_outside_code_blocks(text)), ["real.md"])
+
     def test_relative_links_in_markdown_point_to_existing_files(self):
         checked = 0
         for path in kit_files():
             if path.suffix != ".md":
                 continue
-            for target in LINK.findall(path.read_text(encoding="utf-8")):
+            prose = prose_outside_code_blocks(path.read_text(encoding="utf-8"))
+            for target in LINK.findall(prose):
                 if "://" in target or target.startswith("mailto:"):
                     continue
                 checked += 1

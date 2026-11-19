@@ -4,6 +4,21 @@ A personal kit of working habits for coding agents: skills and an always-on prof
 Code, Kiro and GitHub Copilot read in the same format, plus a guard that keeps sensitive and
 company data out of this repository.
 
+## What is inside
+
+- [`profile/AGENTS.md`](profile/AGENTS.md): eight rules that go into every conversation, each one
+  pointing to the skill with the detail.
+- Skills written for this kit:
+  [`senior-engineering-posture`](skills/senior-engineering-posture/SKILL.md) (how to plan, measure
+  and act before and during a task), [`clear-communication`](skills/clear-communication/SKILL.md)
+  (how to report and how to hand over a command), [`test-coverage`](skills/test-coverage/SKILL.md)
+  (what to test, how to measure, how CI gates a deploy) and
+  [`shared-repo-hygiene`](skills/shared-repo-hygiene/SKILL.md) (what never goes into a shared
+  repository).
+- Third-party skills, frozen copies: the fourteen Superpowers skills (planning, debugging, TDD,
+  code review, writing skills) and `writing-clearly-and-concisely`. Origin, licenses and changes in
+  [`THIRD_PARTY.md`](THIRD_PARTY.md).
+
 ## Install on a machine
 
 ```bash
@@ -54,6 +69,3 @@ python3 -m unittest discover -s tests
 Run them before every commit. Test data is invented, and values that look like addresses or
 credentials are assembled at run time, so the repository passes its own guard.
 
-## Third-party content
-
-See `THIRD_PARTY.md` once third-party skills are added.
