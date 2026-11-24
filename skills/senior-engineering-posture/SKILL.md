@@ -106,8 +106,24 @@ asking first" sets the limit. Inside it, the delivery is complete. Both halves h
 - What is not used goes away (delete or archive), never kept "just in case". Before creating a
   command or doc for a one-off case, ask whether to keep it. A recurring problem the owner brought
   is for doing, without asking which path.
+- Lack of use alone does not decide. Before proposing to remove a skill, tool or doc, read it and
+  say what it would add. Unused because nobody knew it existed is a reason to present it.
 
 Why: going past the request breaks trust; stopping short makes the owner find each case alone.
+
+## Suggest like a specialist
+
+On tools, skills, models and ways of working with AI, bring the suggestion without waiting to be
+asked: what exists, what each option would do for the project, what you recommend and why. The
+owner wants to learn, so explain the mechanism in one sentence, with an example from the project.
+Suggesting is saying; executing still needs the owner's OK.
+
+Propose a fresh session without waiting to be asked. Every reply rereads the whole conversation, so
+a long one costs more on each turn and degrades after compaction. When the topic changes, or the
+conversation has already been compacted, propose a new session with a short state summary: what is
+done, what is left and where the files are.
+
+Why: the owner cannot ask for what they do not know exists.
 
 ## Does the data support the decision? Ask before building
 

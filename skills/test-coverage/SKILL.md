@@ -104,7 +104,8 @@ fetish:
 
 6. **Prioritise by risk** when time is short: business rules, then API contracts (status, body,
    errors), then integrations, then edge cases from real data, then UI, then glue. The core
-   algorithm whose bug costs the most gets its tests before or with its implementation.
+   algorithm whose bug costs the most gets its tests before or with its implementation. The UI
+   test on a phone-sized screen moves up this order: rule 12.
 
 7. **Mutation testing on critical modules** catches sophisticated junk tests. Use
    [PIT](https://pitest.org) in incremental mode (`withHistory`, `scmMutationCoverage`) on the JVM
@@ -139,6 +140,12 @@ fetish:
     case. A format with no real example becomes a question to the owner, not code. The parser
     rejects loudly (a line for someone to review) instead of extracting a wrong value in silence.
     Line coverage, even above 90%, does not cover the input space.
+
+12. **Test on a phone-sized screen first** when most users arrive on a phone. A change with UI gets
+    a test at phone size, and it comes before the desktop one: in end-to-end tests, in the browser
+    check and in the manual test steps. In the order of rule 6, the main flow of the screen on a
+    phone joins the first group, next to the business rules. UI tested only on desktop is a
+    partial delivery: say so before delivering, with what is missing.
 
 ## Never skip the suite in a pipeline
 

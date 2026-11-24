@@ -16,8 +16,14 @@ company data out of this repository.
   [`shared-repo-hygiene`](skills/shared-repo-hygiene/SKILL.md) (what never goes into a shared
   repository).
 - Third-party skills, frozen copies: the fourteen Superpowers skills (planning, debugging, TDD,
-  code review, writing skills) and `writing-clearly-and-concisely`. Origin, licenses and changes in
-  [`THIRD_PARTY.md`](THIRD_PARTY.md).
+  code review, writing skills), `writing-clearly-and-concisely`, and six specialists:
+  [`angular-developer`](skills/angular-developer/SKILL.md),
+  [`multi-tenancy`](skills/multi-tenancy/SKILL.md) (Spring Boot 4),
+  [`docker-compose-patterns`](skills/docker-compose-patterns/SKILL.md),
+  [`security-and-hardening`](skills/security-and-hardening/SKILL.md),
+  [`frontend-design`](skills/frontend-design/SKILL.md) (new UI) and
+  [`impeccable`](skills/impeccable/SKILL.md) (critique and polish of existing UI). Origin, licenses
+  and changes in [`THIRD_PARTY.md`](THIRD_PARTY.md).
 
 ## Install on a machine
 

@@ -27,3 +27,19 @@ host:gutenberg.org
 host:en.wikipedia.org
 # "http://host:port" is a placeholder in the visual companion guide.
 host:host
+
+# Public pages cited by the specialist skills and their licenses (see THIRD_PARTY.md).
+host:angular.dev
+host:apache.org
+host:mozilla.org
+host:raw.githubusercontent.com
+host:docs.jboss.org
+host:projectreactor.io
+host:owasp.org
+host:docs.npmjs.com
+host:pnpm.io
+host:yarnpkg.com
+# Placeholder origin in the CORS example of security-and-hardening.
+host:yourdomain.com
+# The cloud metadata address, named in the SSRF examples of security-and-hardening.
+ip:169.254.169.254
