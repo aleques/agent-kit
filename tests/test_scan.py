@@ -121,6 +121,15 @@ class GenericDetectorTest(unittest.TestCase):
     def test_dotted_reference_is_not_a_secret(self):
         self.assertEqual(detectors(j("let TOK", "EN = tokenInput.value;")), [])
 
+    def test_unquoted_constant_name_is_not_a_secret(self):
+        self.assertEqual(detectors(j("  sec", "ret: SESSION_", "SECRET,")), [])
+        self.assertEqual(detectors(j("tok", "en = API_", "TOKEN")), [])
+
+    def test_quoted_or_mixed_case_value_is_still_a_secret(self):
+        self.assertEqual(detectors(j("sec", "ret: '", "SESSION_", "SECRET'")), ["secret"])
+        self.assertEqual(detectors(j("sec", "ret: Session_", "Secret9,")), ["secret"])
+        self.assertEqual(detectors(j("tok", "en = ABCD1234", "EFGH5678")), ["secret"])
+
     def test_jwt_is_a_secret(self):
         jwt = j("ey", "JhbGciOiJIUzI1NiJ9", ".", "ey", "JzdWIiOiIxMjM0NTY3ODkwIn0", ".",
                 "dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U")

@@ -157,10 +157,11 @@ SECRET = re.compile("|".join([
     r"xox[abprs]-[A-Za-z0-9-]{10,}",
     r"AIza[0-9A-Za-z_-]{35}",
     r"eyJ[A-Za-z0-9_-]{8,}\.eyJ[A-Za-z0-9_-]{8,}\.[A-Za-z0-9_-]{8,}",
-    # name = value, where the value is a plain literal: code such as `x = call()` or
-    # `x = form.value` does not count.
+    # name = value, where the value is a plain literal: code such as `x = call()`,
+    # `x = form.value` or an unquoted constant name (`secret: SESSION_SECRET,`) does not count.
     r"(?i:\b(?:password|passwd|pwd|secret|token|api[_-]?key)\b\s*[:=]\s*['\"]?"
     r"(?![A-Za-z_]\w*(?:\.[A-Za-z_]\w*)+['\"]?(?:\s|$|[,;]))"
+    r"(?!(?-i:[A-Z][A-Z0-9]*_[A-Z0-9_]*)(?:\s|$|[,;]))"
     r"[^\s'\"<>{}$()\[\],;]{8,}['\"]?(?=\s|$|[,;]))",
 ]))
 
